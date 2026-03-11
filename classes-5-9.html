@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5-9 классы</title>
+    <link rel="icon" href="логотип иконка.png" type="image/png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="scene-wrap">
+      <section class="scene scene--classes-5-9" aria-label="Кабинет 5-9 классов">
+        <img class="bg" src="кабинет 5-9 классы.svg" alt="Кабинет 5-9 классов" />
+        <a class="room-back" href="corridor.html" aria-label="Вернуться в коридор">← Коридор</a>
+        <a
+          class="room-cta"
+          href="https://taplink.cc/alif_cdo"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Записаться в «Алиф»"
+        >
+          <span class="room-cta__label">Записаться в «Алиф»</span>
+        </a>
+
+        <button
+          class="info-orb info-orb--classes-laptop"
+          type="button"
+          aria-label="Открыть карточку «Как мы формируем образовательную интерактивную среду»"
+          aria-controls="interactive-environment-spread"
+          data-spread-target="interactive-environment-spread"
+          data-tooltip="Как мы формируем образовательную интерактивную среду"
+        >
+          <span class="info-orb__core" aria-hidden="true"></span>
+        </button>
+
+        <button
+          class="info-orb info-orb--classes-globe"
+          type="button"
+          aria-label="Открыть карточку «Как мы формируем восприятие через призму ислама»"
+          aria-controls="islamic-perspective-spread"
+          data-spread-target="islamic-perspective-spread"
+          data-tooltip="Как мы формируем восприятие через призму ислама"
+        >
+          <span class="info-orb__core" aria-hidden="true"></span>
+        </button>
+
+        <button
+          class="info-orb info-orb--classes-program"
+          type="button"
+          aria-label="Открыть карточку «Принципы и программа обучения»"
+          aria-controls="program-spread"
+          data-spread-target="program-spread"
+          data-tooltip="Принципы и программа обучения"
+        >
+          <span class="info-orb__core" aria-hidden="true"></span>
+        </button>
+      </section>
+    </main>
+
+    <div class="book-spread" id="interactive-environment-spread" hidden aria-hidden="true" data-spread-overlay>
+      <div
+        class="book-spread__panel"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Как мы формируем образовательную интерактивную среду"
+      >
+        <button class="book-spread__close" type="button" aria-label="Вернуться в кабинет" data-close-spread>
+          ← В кабинет
+        </button>
+        <img
+          class="book-spread__image"
+          src="Как мы формируем образовательную интерактивную среду.svg"
+          alt="Как мы формируем образовательную интерактивную среду"
+        />
+      </div>
+    </div>
+
+    <div class="book-spread" id="islamic-perspective-spread" hidden aria-hidden="true" data-spread-overlay>
+      <div
+        class="book-spread__panel"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Как мы формируем восприятие через призму ислама"
+      >
+        <button class="book-spread__close" type="button" aria-label="Вернуться в кабинет" data-close-spread>
+          ← В кабинет
+        </button>
+        <img
+          class="book-spread__image"
+          src="Как мы формируем восприятие  через призму ислама.svg"
+          alt="Как мы формируем восприятие через призму ислама"
+        />
+      </div>
+    </div>
+
+    <div class="book-spread" id="program-spread" hidden aria-hidden="true" data-spread-overlay>
+      <div class="book-spread__panel" role="dialog" aria-modal="true" aria-label="Принципы и программа обучения">
+        <button class="book-spread__close" type="button" aria-label="Вернуться в кабинет" data-close-spread>
+          ← В кабинет
+        </button>
+        <img class="book-spread__image" src="Принципы и программа обучения.svg" alt="Принципы и программа обучения" />
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

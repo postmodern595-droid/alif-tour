@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Виртуальная экскурсия - Фасад</title>
+    <link rel="icon" href="логотип иконка.png" type="image/png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="page-facade-full">
+    <main class="scene-wrap">
+      <section class="scene scene--facade" aria-label="Фасад школы">
+        <img class="bg" src="фасад.svg" alt="Фасад школы" />
+
+        <a
+          class="hotspot facade-door-area"
+          href="vestibule.html"
+          aria-label="Войти в школу через главную дверь"
+          data-preview-class="preview-facade-door"
+        ></a>
+
+        <div class="overlay overlay-facade-shine" aria-hidden="true"></div>
+
+        <img
+          class="overlay overlay-facade-door"
+          src="дверь фасада.png"
+          alt=""
+          aria-hidden="true"
+        />
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

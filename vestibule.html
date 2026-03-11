@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Виртуальная экскурсия - Вестибюль</title>
+    <link rel="icon" href="логотип иконка.png" type="image/png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="scene-wrap">
+      <section class="scene scene--lobby" aria-label="Вестибюль школы">
+        <img class="bg" src="вестибюль.svg" alt="Вестибюль школы" />
+
+        <button
+          class="lobby-orb lobby-orb--book"
+          type="button"
+          aria-label="Открыть разворот книги"
+          aria-controls="book-spread"
+          data-open-book
+          data-tooltip="Почему выбирают нас"
+        >
+          <span class="lobby-orb__core" aria-hidden="true"></span>
+        </button>
+
+        <a
+          class="lobby-orb lobby-orb--bell"
+          href="https://taplink.cc/alif_cdo"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Перейти по ссылке для связи с менеджером"
+          data-tooltip="Записаться в «Алиф»"
+        >
+          <span class="lobby-orb__core" aria-hidden="true"></span>
+        </a>
+
+        <a
+          class="hotspot lobby-door-area"
+          href="corridor.html"
+          aria-label="Перейти в коридор"
+        ></a>
+      </section>
+    </main>
+
+    <div class="book-spread" id="book-spread" hidden aria-hidden="true" data-book-spread>
+      <div class="book-spread__panel" role="dialog" aria-modal="true" aria-label="Разворот книги">
+        <button class="book-spread__close" type="button" aria-label="Вернуться в вестибюль" data-close-book>
+          ← В вестибюль
+        </button>
+        <img class="book-spread__image" src="разворот книги.svg" alt="Разворот книги" />
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

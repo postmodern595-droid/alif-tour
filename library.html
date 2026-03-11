@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Библиотека</title>
+    <link rel="icon" href="логотип иконка.png" type="image/png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="scene-wrap">
+      <section class="scene scene--library" aria-label="Кабинет библиотеки">
+        <img class="bg" src="кабинет библиотека.svg" alt="Кабинет библиотеки" />
+        <a class="room-back" href="corridor.html" aria-label="Вернуться в коридор">← Коридор</a>
+        <a
+          class="room-cta"
+          href="https://taplink.cc/alif_cdo"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Записаться в «Алиф»"
+        >
+          <span class="room-cta__label">Записаться в «Алиф»</span>
+        </a>
+
+        <button
+          class="info-orb info-orb--library-reviews"
+          type="button"
+          aria-label="Открыть отзывы"
+          data-panel-target="library-reviews-panel"
+          data-tooltip="Отзывы"
+        >
+          <span class="info-orb__core" aria-hidden="true"></span>
+        </button>
+
+        <button
+          class="info-orb info-orb--library-faq"
+          type="button"
+          aria-label="Открыть часто задаваемые вопросы"
+          data-panel-target="library-faq-panel"
+          data-tooltip="Часто задаваемые вопросы"
+        >
+          <span class="info-orb__core" aria-hidden="true"></span>
+        </button>
+
+        <button
+          class="info-orb info-orb--library-books"
+          type="button"
+          aria-label="Открыть полку с электронными книгами"
+          data-panel-target="library-books-panel"
+          data-tooltip="Электронные книги"
+        >
+          <span class="info-orb__core" aria-hidden="true"></span>
+        </button>
+      </section>
+    </main>
+
+    <div class="info-panel" id="library-books-panel" hidden aria-hidden="true" data-info-panel>
+      <div
+        class="info-panel__dialog info-panel__dialog--library-shelf"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="library-books-title"
+      >
+        <button class="info-panel__close" type="button" aria-label="Закрыть окно" data-close-info-panel>
+          ×
+        </button>
+        <p class="library-shelf-panel__eyebrow">Электронная полка</p>
+        <h2 class="info-panel__title library-shelf-panel__title" id="library-books-title">
+          Подборка книг для скачивания
+        </h2>
+        <p class="info-panel__text library-shelf-panel__text">
+          Нажмите на обложку книги, чтобы скачать PDF-файл.
+        </p>
+
+        <div class="library-shelves" aria-label="Книги для скачивания">
+          <div class="library-shelf" aria-label="Верхняя полка">
+            <a class="library-book-card" href="Учим ударения за 7 дней.pdf" download aria-label="Скачать PDF «Учим ударения за 7 дней»">
+              <span class="library-book-card__cover-wrap">
+                <img class="library-book-card__cover" src="Учим ударения за 7 дней.png" alt="Обложка книги «Учим ударения за 7 дней»" />
+              </span>
+            </a>
+
+            <a class="library-book-card" href="Словарь фразеологизмов.pdf" download aria-label="Скачать PDF «Словарь фразеологизмов»">
+              <span class="library-book-card__cover-wrap">
+                <img class="library-book-card__cover" src="Словарь фразеологизмов.png" alt="Обложка книги «Словарь фразеологизмов»" />
+              </span>
+            </a>
+
+            <a class="library-book-card" href="Словарь паронимов. Часть 1.pdf" download aria-label="Скачать PDF «Словарь паронимов. Часть 1»">
+              <span class="library-book-card__cover-wrap">
+                <img class="library-book-card__cover" src="Словарь паронимов. Часть 1.png" alt="Обложка книги «Словарь паронимов. Часть 1»" />
+              </span>
+            </a>
+
+            <a class="library-book-card" href="Словарь паронимов. Часть 2.pdf" download aria-label="Скачать PDF «Словарь паронимов. Часть 2»">
+              <span class="library-book-card__cover-wrap">
+                <img class="library-book-card__cover" src="Словарь паронимов. Часть 2.png" alt="Обложка книги «Словарь паронимов. Часть 2»" />
+              </span>
+            </a>
+
+            <a class="library-book-card" href="Проприоцепция дошкольники .pdf" download aria-label="Скачать PDF «Проприоцепция дошкольники»">
+              <span class="library-book-card__cover-wrap">
+                <img class="library-book-card__cover" src="Проприоцепция дошкольники .png" alt="Обложка книги «Проприоцепция дошкольники»" />
+              </span>
+            </a>
+          </div>
+
+          <div class="library-shelf" aria-label="Нижняя полка">
+            <a class="library-book-card" href="Гайд для родителей 1.pdf" download aria-label="Скачать PDF «Гайд для родителей 1»">
+              <span class="library-book-card__cover-wrap">
+                <img class="library-book-card__cover" src="Гайд для родителей 1.png" alt="Обложка книги «Гайд для родителей 1»" />
+              </span>
+            </a>
+
+            <a class="library-book-card" href="Гайд для родителей 2.pdf" download aria-label="Скачать PDF «Гайд для родителей 2»">
+              <span class="library-book-card__cover-wrap">
+                <img class="library-book-card__cover" src="Гайд для родителей 2.png" alt="Обложка книги «Гайд для родителей 2»" />
+              </span>
+            </a>
+
+            <a class="library-book-card" href="Гайд для родителей 3.pdf" download aria-label="Скачать PDF «Гайд для родителей 3»">
+              <span class="library-book-card__cover-wrap">
+                <img class="library-book-card__cover" src="Гайд для родителей 3.png" alt="Обложка книги «Гайд для родителей 3»" />
+              </span>
+            </a>
+
+            <a class="library-book-card" href="Памятка ОГЭ математика .pdf" download aria-label="Скачать PDF «Памятка ОГЭ математика»">
+              <span class="library-book-card__cover-wrap">
+                <img class="library-book-card__cover" src="Памятка ОГЭ математика .png" alt="Обложка книги «Памятка ОГЭ математика»" />
+              </span>
+            </a>
+
+            <a class="library-book-card" href="Памятка ОГЭ русский язык .pdf" download aria-label="Скачать PDF «Памятка ОГЭ русский язык»">
+              <span class="library-book-card__cover-wrap">
+                <img class="library-book-card__cover" src="Памятка ОГЭ русский язык .png" alt="Обложка книги «Памятка ОГЭ русский язык»" />
+              </span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="info-panel" id="library-reviews-panel" hidden aria-hidden="true" data-info-panel>
+      <div
+        class="info-panel__dialog info-panel__dialog--reviews"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="library-reviews-title"
+      >
+        <button class="info-panel__close" type="button" aria-label="Закрыть окно" data-close-info-panel>
+          ×
+        </button>
+        <h2 class="info-panel__title" id="library-reviews-title">Ваши отзывы</h2>
+        <p class="info-panel__text reviews-panel__text">
+          Листайте отзывы с помощью стрелок навигации.
+        </p>
+
+        <div class="reviews-slider" data-slider aria-label="Слайдер отзывов">
+          <button
+            class="reviews-slider__nav reviews-slider__nav--prev"
+            type="button"
+            aria-label="Показать предыдущий отзыв"
+            data-slider-prev
+          >
+            ‹
+          </button>
+
+          <div class="reviews-slider__viewport">
+            <div class="reviews-slider__track" data-slider-track>
+              <figure class="reviews-slide" data-slide>
+                <img class="reviews-slide__image" src="Отзыв 1.png" alt="Отзыв 1" />
+              </figure>
+
+              <figure class="reviews-slide" data-slide>
+                <img class="reviews-slide__image" src="Отзыв 2.png" alt="Отзыв 2" />
+              </figure>
+
+              <figure class="reviews-slide" data-slide>
+                <img class="reviews-slide__image" src="отзыв 4.png" alt="Отзыв 4" />
+              </figure>
+
+              <figure class="reviews-slide" data-slide>
+                <img class="reviews-slide__image" src="отзыв 5.png" alt="Отзыв 5" />
+              </figure>
+
+              <figure class="reviews-slide" data-slide>
+                <img class="reviews-slide__image" src="отзыв 6.png" alt="Отзыв 6" />
+              </figure>
+            </div>
+          </div>
+
+          <button
+            class="reviews-slider__nav reviews-slider__nav--next"
+            type="button"
+            aria-label="Показать следующий отзыв"
+            data-slider-next
+          >
+            ›
+          </button>
+
+          <div class="reviews-slider__dots" role="tablist" aria-label="Навигация по отзывам">
+            <button class="reviews-slider__dot" type="button" aria-label="Показать отзыв 1" data-slider-dot></button>
+            <button class="reviews-slider__dot" type="button" aria-label="Показать отзыв 2" data-slider-dot></button>
+            <button class="reviews-slider__dot" type="button" aria-label="Показать отзыв 4" data-slider-dot></button>
+            <button class="reviews-slider__dot" type="button" aria-label="Показать отзыв 5" data-slider-dot></button>
+            <button class="reviews-slider__dot" type="button" aria-label="Показать отзыв 6" data-slider-dot></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-panel" id="library-faq-panel" hidden aria-hidden="true" data-info-panel>
+      <div class="info-panel__dialog info-panel__dialog--faq" role="dialog" aria-modal="true" aria-labelledby="library-faq-title">
+        <button class="info-panel__close" type="button" aria-label="Закрыть окно" data-close-info-panel>
+          ×
+        </button>
+        <p class="library-shelf-panel__eyebrow">FAQ</p>
+        <h2 class="info-panel__title" id="library-faq-title">Часто задаваемые вопросы</h2>
+        <p class="info-panel__text faq-panel__text">
+          Нажмите на вопрос, чтобы открыть или скрыть ответ.
+        </p>
+
+        <div class="faq-accordion" aria-label="Список часто задаваемых вопросов">
+          <details class="faq-item" open>
+            <summary class="faq-item__summary">Почему центр дополнительного образования, а не школа?</summary>
+            <div class="faq-item__content">
+              <p>
+                Потому что в строгом юридическом смысле все онлайн-школы относятся к дополнительному образованию.
+                Школой может называться только учреждение, прошедшее государственную аккредитацию в очном формате.
+              </p>
+              <p>
+                Мы не подменяем понятия и не называем онлайн-формат «школой» формально. При этом по сути обучение в
+                «Алифе» — это полноценная системная работа с программой, а не кружок и не разовые занятия.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__summary">Почему вы работаете по советской методике в начальной школе?</summary>
+            <div class="faq-item__content">
+              <p>
+                Потому что это система, проверенная временем и десятилетиями практики. Она выстроена логично и
+                последовательно, даёт прочную базу и устойчивый результат. На сегодняшний день у неё нет равноценных
+                аналогов по глубине и выстроенности обучения.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__summary">Онлайн-обучение вообще может быть эффективным?</summary>
+            <div class="faq-item__content">
+              <p>
+                Да, если формат изначально продуман под онлайн. В «Алифе» уроки не копируют офлайн-класс, а выстроены
+                так, чтобы ребёнку было понятно, спокойно и посильно учиться у экрана.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__summary">Кто именно учит моего ребёнка?</summary>
+            <div class="faq-item__content">
+              <p>
+                В центре «Алиф» работают только учителя с профильным педагогическим образованием и опытом работы с
+                детьми. Мы принципиально не привлекаем случайных людей и не заменяем профессиональную подготовку
+                энтузиазмом.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__summary">Как советская методика сочетается с исламскими ценностями?</summary>
+            <div class="faq-item__content">
+              <p>
+                Мы берём из системы не идеологию, а порядок, труд, постепенность и уважение к ребёнку. Это полностью
+                созвучно исламской этике обучения и адабу в передаче знаний.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__summary">Если ребёнок неусидчивый, сможет ли он учиться онлайн?</summary>
+            <div class="faq-item__content">
+              <p>
+                Если совсем не может сидеть и вообще не слушает, то будет тяжело. Если просто подвижный, но может
+                слушать и отвечать, то можно, мы таких берём.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__summary">В классе много детей?</summary>
+            <div class="faq-item__content">
+              <p>
+                Группы небольшие, до 10 учеников. Учитель видит каждого.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__summary">Мы мусульмане, считаетесь ли вы с этим?</summary>
+            <div class="faq-item__content">
+              <p>
+                Да. Учитывается и атмосфера, и подход.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__summary">Кому наш центр не подойдёт?</summary>
+            <div class="faq-item__content">
+              <p>
+                Тем, кто не готов заниматься вообще и ждёт результата без приложения каких-либо усилий.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__summary">Камеру на уроках включать обязательно?</summary>
+            <div class="faq-item__content">
+              <p>
+                Желательно, но если ребёнок стесняется, сначала можно без камеры. Но родители должны отдавать себе
+                отчёт в том, что без включённой камеры, как у учителя, так и у ученика, обучение неполноценно.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__summary">По каким учебникам будет заниматься первый класс?</summary>
+            <div class="faq-item__content">
+              <p>
+                Для первого класса мы используем советские учебники, одобренные Академией педагогических наук СССР.
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

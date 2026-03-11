@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1-4 классы</title>
+    <link rel="icon" href="логотип иконка.png" type="image/png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="scene-wrap">
+      <section class="scene scene--classes-1-4" aria-label="Кабинет 1-4 классов">
+        <img class="bg" src="кабинет 1-4 классы.svg" alt="Кабинет 1-4 классов" />
+        <a class="room-back" href="corridor.html" aria-label="Вернуться в коридор">← Коридор</a>
+        <a
+          class="room-cta"
+          href="https://taplink.cc/alif_cdo"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Записаться в «Алиф»"
+        >
+          <span class="room-cta__label">Записаться в «Алиф»</span>
+        </a>
+
+        <button
+          class="info-orb info-orb--classes-board"
+          type="button"
+          aria-label="Открыть карточку «Как проходят занятия»"
+          aria-controls="how-we-teach-spread"
+          data-spread-target="how-we-teach-spread"
+          data-tooltip="Как проходят занятия"
+        >
+          <span class="info-orb__core" aria-hidden="true"></span>
+        </button>
+
+        <button
+          class="info-orb info-orb--classes-method"
+          type="button"
+          aria-label="Открыть карточку «Какую методику мы используем»"
+          aria-controls="methodology-spread"
+          data-spread-target="methodology-spread"
+          data-tooltip="Какую методику мы используем"
+        >
+          <span class="info-orb__core" aria-hidden="true"></span>
+        </button>
+
+        <button
+          class="info-orb info-orb--classes-desk"
+          type="button"
+          aria-label="Открыть карточку «Как мы формируем учебные привычки»"
+          aria-controls="study-habits-spread"
+          data-spread-target="study-habits-spread"
+          data-tooltip="Как мы формируем учебные привычки"
+        >
+          <span class="info-orb__core" aria-hidden="true"></span>
+        </button>
+      </section>
+    </main>
+
+    <div class="book-spread" id="how-we-teach-spread" hidden aria-hidden="true" data-spread-overlay>
+      <div class="book-spread__panel" role="dialog" aria-modal="true" aria-label="Как проходят занятия">
+        <button class="book-spread__close" type="button" aria-label="Вернуться в кабинет" data-close-spread>
+          ← В кабинет
+        </button>
+        <img class="book-spread__image" src="как проходят занятия.svg" alt="Как проходят занятия" />
+      </div>
+    </div>
+
+    <div class="book-spread" id="methodology-spread" hidden aria-hidden="true" data-spread-overlay>
+      <div class="book-spread__panel" role="dialog" aria-modal="true" aria-label="Какую методику мы используем">
+        <button class="book-spread__close" type="button" aria-label="Вернуться в кабинет" data-close-spread>
+          ← В кабинет
+        </button>
+        <img class="book-spread__image" src="какую методику мы используем.svg" alt="Какую методику мы используем" />
+      </div>
+    </div>
+
+    <div class="book-spread" id="study-habits-spread" hidden aria-hidden="true" data-spread-overlay>
+      <div class="book-spread__panel" role="dialog" aria-modal="true" aria-label="Как мы формируем учебные привычки">
+        <button class="book-spread__close" type="button" aria-label="Вернуться в кабинет" data-close-spread>
+          ← В кабинет
+        </button>
+        <img
+          class="book-spread__image"
+          src="как мы формируем учебные привычки.svg"
+          alt="Как мы формируем учебные привычки"
+        />
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
