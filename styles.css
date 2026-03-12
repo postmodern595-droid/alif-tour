@@ -848,7 +848,6 @@ body.quest-exit {
   width: fit-content;
   max-width: calc(100vw - 48px);
   max-height: calc(100svh - 48px);
-  container-type: inline-size;
   overflow: visible;
   border: 2px solid rgba(215, 168, 64, 0.44);
   border-radius: 18px;
@@ -1776,6 +1775,7 @@ body.info-panel-open .scene-wrap {
   }
 
   .book-spread__panel {
+    container-type: inline-size;
     max-width: calc(100vw - 24px);
     max-height: calc(100svh - 24px);
   }
