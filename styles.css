@@ -1059,7 +1059,9 @@ body.info-panel-open .scene-wrap {
   width: min(100%, 1120px);
   max-height: calc(100svh - 48px);
   padding: clamp(26px, 4vw, 38px);
-  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   background:
     linear-gradient(180deg, rgba(86, 57, 31, 0.98) 0%, rgba(58, 35, 19, 0.98) 100%);
   border-color: rgba(255, 228, 173, 0.16);
@@ -1071,28 +1073,47 @@ body.info-panel-open .scene-wrap {
 .info-panel__dialog--faq {
   width: min(100%, 920px);
   max-height: calc(100svh - 48px);
-  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
-.info-panel__dialog--library-shelf,
-.info-panel__dialog--faq {
+.info-panel__scroll-region {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable;
+}
+
+.info-panel__scroll-region--library,
+.info-panel__scroll-region--faq {
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 214, 118, 0.72) rgba(255, 239, 205, 0.08);
 }
 
-.info-panel__dialog--library-shelf::-webkit-scrollbar,
-.info-panel__dialog--faq::-webkit-scrollbar {
+.info-panel__scroll-region--library {
+  padding-right: 8px;
+}
+
+.info-panel__scroll-region--faq {
+  padding-right: 4px;
+}
+
+.info-panel__scroll-region--library::-webkit-scrollbar,
+.info-panel__scroll-region--faq::-webkit-scrollbar {
   width: 10px;
 }
 
-.info-panel__dialog--library-shelf::-webkit-scrollbar-track,
-.info-panel__dialog--faq::-webkit-scrollbar-track {
+.info-panel__scroll-region--library::-webkit-scrollbar-track,
+.info-panel__scroll-region--faq::-webkit-scrollbar-track {
   background: rgba(255, 239, 205, 0.08);
   border-radius: 999px;
 }
 
-.info-panel__dialog--library-shelf::-webkit-scrollbar-thumb,
-.info-panel__dialog--faq::-webkit-scrollbar-thumb {
+.info-panel__scroll-region--library::-webkit-scrollbar-thumb,
+.info-panel__scroll-region--faq::-webkit-scrollbar-thumb {
   border: 2px solid transparent;
   border-radius: 999px;
   background:
@@ -1103,8 +1124,8 @@ body.info-panel-open .scene-wrap {
     0 0 10px rgba(255, 192, 78, 0.18);
 }
 
-.info-panel__dialog--library-shelf::-webkit-scrollbar-thumb:hover,
-.info-panel__dialog--faq::-webkit-scrollbar-thumb:hover {
+.info-panel__scroll-region--library::-webkit-scrollbar-thumb:hover,
+.info-panel__scroll-region--faq::-webkit-scrollbar-thumb:hover {
   background:
     linear-gradient(180deg, rgba(255, 235, 182, 1) 0%, rgba(217, 148, 52, 1) 100%);
   background-clip: padding-box;
@@ -1766,10 +1787,12 @@ body.info-panel-open .scene-wrap {
     border-radius: 18px;
   }
 
-  .info-panel__dialog--library-shelf,
-  .info-panel__dialog--faq,
   .info-panel__dialog--reviews {
     overflow: auto;
+  }
+
+  .info-panel__scroll-region {
+    touch-action: pan-y;
   }
 
   .info-panel__dialog:not(.info-panel__dialog--library-shelf):not(.info-panel__dialog--faq):not(.info-panel__dialog--reviews) {
