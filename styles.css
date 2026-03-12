@@ -848,6 +848,7 @@ body.quest-exit {
   width: fit-content;
   max-width: calc(100vw - 48px);
   max-height: calc(100svh - 48px);
+  container-type: inline-size;
   overflow: visible;
   border: 2px solid rgba(215, 168, 64, 0.44);
   border-radius: 18px;
@@ -1079,6 +1080,12 @@ body.info-panel-open .scene-wrap {
   overflow: hidden;
 }
 
+.info-panel__dialog--simple {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
 .info-panel__scroll-region {
   flex: 1 1 auto;
   min-height: 0;
@@ -1086,6 +1093,13 @@ body.info-panel-open .scene-wrap {
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
   scrollbar-gutter: stable;
+}
+
+.info-panel__scroll-region--simple {
+  padding-top: 4px;
+  padding-right: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 214, 118, 0.72) rgba(255, 239, 205, 0.08);
 }
 
 .info-panel__scroll-region--library,
@@ -1105,18 +1119,21 @@ body.info-panel-open .scene-wrap {
 }
 
 .info-panel__scroll-region--library::-webkit-scrollbar,
-.info-panel__scroll-region--faq::-webkit-scrollbar {
+.info-panel__scroll-region--faq::-webkit-scrollbar,
+.info-panel__scroll-region--simple::-webkit-scrollbar {
   width: 10px;
 }
 
 .info-panel__scroll-region--library::-webkit-scrollbar-track,
-.info-panel__scroll-region--faq::-webkit-scrollbar-track {
+.info-panel__scroll-region--faq::-webkit-scrollbar-track,
+.info-panel__scroll-region--simple::-webkit-scrollbar-track {
   background: rgba(255, 239, 205, 0.08);
   border-radius: 999px;
 }
 
 .info-panel__scroll-region--library::-webkit-scrollbar-thumb,
-.info-panel__scroll-region--faq::-webkit-scrollbar-thumb {
+.info-panel__scroll-region--faq::-webkit-scrollbar-thumb,
+.info-panel__scroll-region--simple::-webkit-scrollbar-thumb {
   border: 2px solid transparent;
   border-radius: 999px;
   background:
@@ -1128,7 +1145,8 @@ body.info-panel-open .scene-wrap {
 }
 
 .info-panel__scroll-region--library::-webkit-scrollbar-thumb:hover,
-.info-panel__scroll-region--faq::-webkit-scrollbar-thumb:hover {
+.info-panel__scroll-region--faq::-webkit-scrollbar-thumb:hover,
+.info-panel__scroll-region--simple::-webkit-scrollbar-thumb:hover {
   background:
     linear-gradient(180deg, rgba(255, 235, 182, 1) 0%, rgba(217, 148, 52, 1) 100%);
   background-clip: padding-box;
@@ -1768,11 +1786,16 @@ body.info-panel-open .scene-wrap {
   }
 
   .book-spread__close {
-    top: 10px;
-    left: 10px;
-    padding: 8px 12px;
-    min-height: 40px;
-    font-size: 14px;
+    top: clamp(-10px, -2.2cqw, -6px);
+    left: clamp(-10px, -2.2cqw, -6px);
+    padding: clamp(5px, 1.1cqw, 7px) clamp(8px, 2.1cqw, 11px);
+    min-height: 0;
+    max-width: clamp(86px, 24cqw, 118px);
+    font-size: clamp(11px, 2.4cqw, 13px);
+    line-height: 1.05;
+    white-space: normal;
+    text-wrap: balance;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
   }
 
   .info-panel {
@@ -1799,33 +1822,9 @@ body.info-panel-open .scene-wrap {
   }
 
   .info-panel__scroll-region--library,
-  .info-panel__scroll-region--faq {
+  .info-panel__scroll-region--faq,
+  .info-panel__scroll-region--simple {
     padding-right: 48px;
-  }
-
-  .info-panel__dialog:not(.info-panel__dialog--library-shelf):not(.info-panel__dialog--faq):not(.info-panel__dialog--reviews) {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .info-panel__dialog:not(.info-panel__dialog--library-shelf):not(.info-panel__dialog--faq):not(.info-panel__dialog--reviews)
-    .info-panel__title,
-  .info-panel__dialog:not(.info-panel__dialog--library-shelf):not(.info-panel__dialog--faq):not(.info-panel__dialog--reviews)
-    .info-panel__actions {
-    flex: 0 0 auto;
-  }
-
-  .info-panel__dialog:not(.info-panel__dialog--library-shelf):not(.info-panel__dialog--faq):not(.info-panel__dialog--reviews)
-    .info-panel__text {
-    flex: 1 1 auto;
-    min-height: 0;
-    max-height: calc(100svh - 172px);
-    overflow: auto;
-    overscroll-behavior: contain;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-gutter: stable;
-    touch-action: pan-y;
-    padding-right: 6px;
   }
 
   .info-panel__dialog::-webkit-scrollbar {
@@ -1965,16 +1964,14 @@ body.info-panel-open .scene-wrap {
     padding: 8px 12px;
   }
 
-  .info-panel__dialog:not(.info-panel__dialog--library-shelf):not(.info-panel__dialog--faq):not(.info-panel__dialog--reviews) {
+  .info-panel__dialog--simple {
     height: calc(100svh - 16px);
     min-height: 0;
     margin: 0 auto;
     padding: 18px 16px;
   }
 
-  .info-panel__dialog:not(.info-panel__dialog--library-shelf):not(.info-panel__dialog--faq):not(.info-panel__dialog--reviews)
-    .info-panel__text {
-    max-height: none;
+  .info-panel__scroll-region--simple {
     padding-right: 2px;
     padding-bottom: 6px;
   }
