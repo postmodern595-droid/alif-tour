@@ -130,6 +130,8 @@ body.page-facade-full .scene > .bg {
   );
   display: grid;
   place-items: center;
+  container-type: inline-size;
+  container-name: scene;
   transition:
     transform 0.42s ease,
     opacity 0.42s ease,
@@ -1754,12 +1756,45 @@ body.info-panel-open .scene-wrap {
   }
 
   .info-panel__dialog {
+    width: 100%;
     max-height: calc(100svh - 24px);
+    overflow: hidden;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    padding: 22px 18px;
+    border-radius: 18px;
+  }
+
+  .info-panel__dialog--library-shelf,
+  .info-panel__dialog--faq,
+  .info-panel__dialog--reviews {
+    overflow: auto;
+  }
+
+  .info-panel__dialog:not(.info-panel__dialog--library-shelf):not(.info-panel__dialog--faq):not(.info-panel__dialog--reviews) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .info-panel__dialog:not(.info-panel__dialog--library-shelf):not(.info-panel__dialog--faq):not(.info-panel__dialog--reviews)
+    .info-panel__title,
+  .info-panel__dialog:not(.info-panel__dialog--library-shelf):not(.info-panel__dialog--faq):not(.info-panel__dialog--reviews)
+    .info-panel__actions {
+    flex: 0 0 auto;
+  }
+
+  .info-panel__dialog:not(.info-panel__dialog--library-shelf):not(.info-panel__dialog--faq):not(.info-panel__dialog--reviews)
+    .info-panel__text {
+    flex: 1 1 auto;
+    min-height: 0;
+    max-height: calc(100svh - 172px);
     overflow: auto;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
-    padding: 22px 18px;
-    border-radius: 18px;
+    scrollbar-gutter: stable;
+    touch-action: pan-y;
+    padding-right: 6px;
   }
 
   .info-panel__dialog::-webkit-scrollbar {
@@ -1841,25 +1876,30 @@ body.info-panel-open .scene-wrap {
   }
 
   .room-back {
-    top: 10px;
-    left: 10px;
-    padding: 7px 10px;
-    font-size: 0.8rem;
+    top: clamp(8px, 1.8cqw, 12px);
+    left: clamp(8px, 1.8cqw, 12px);
+    padding: clamp(6px, 1.4cqw, 8px) clamp(10px, 2.4cqw, 13px);
+    max-width: 34cqw;
+    font-size: clamp(0.68rem, 2.35cqw, 0.82rem);
   }
 
   .room-cta {
-    right: 10px;
-    bottom: 10px;
-    max-width: min(46vw, 164px);
+    right: clamp(8px, 1.8cqw, 12px);
+    bottom: clamp(8px, 1.8cqw, 12px);
+    max-width: clamp(96px, 28cqw, 156px);
+    box-shadow:
+      0 10px 22px rgba(0, 0, 0, 0.24),
+      0 0 0 1px rgba(255, 232, 176, 0.16);
   }
 
   .room-cta__label {
-    padding: 8px 11px;
-    min-height: 34px;
-    font-size: 0.78rem;
+    padding: clamp(6px, 1.5cqw, 9px) clamp(10px, 2.8cqw, 14px);
+    min-height: clamp(30px, 7.8cqw, 40px);
+    font-size: clamp(0.68rem, 2.35cqw, 0.84rem);
     line-height: 1.15;
     text-align: center;
     white-space: normal;
+    text-wrap: balance;
   }
 
   .cursor-tooltip {
