@@ -1775,7 +1775,6 @@ body.info-panel-open .scene-wrap {
   }
 
   .book-spread__panel {
-    container-type: inline-size;
     max-width: calc(100vw - 24px);
     max-height: calc(100svh - 24px);
   }
@@ -1786,16 +1785,11 @@ body.info-panel-open .scene-wrap {
   }
 
   .book-spread__close {
-    top: clamp(-10px, -2.2cqw, -6px);
-    left: clamp(-10px, -2.2cqw, -6px);
-    padding: clamp(5px, 1.1cqw, 7px) clamp(8px, 2.1cqw, 11px);
-    min-height: 0;
-    max-width: clamp(86px, 24cqw, 118px);
-    font-size: clamp(11px, 2.4cqw, 13px);
-    line-height: 1.05;
-    white-space: normal;
-    text-wrap: balance;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+    top: 10px;
+    left: 10px;
+    padding: 8px 12px;
+    min-height: 40px;
+    font-size: 14px;
   }
 
   .info-panel {
