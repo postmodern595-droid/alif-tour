@@ -229,12 +229,12 @@ body.is-loading .page-loader {
 .orientation-hint {
   position: fixed;
   left: 50%;
-  bottom: max(14px, calc(env(safe-area-inset-bottom, 0px) + 14px));
+  top: max(14px, calc(env(safe-area-inset-top, 0px) + 14px));
   z-index: 10050;
   width: min(calc(100vw - 24px), 420px);
   opacity: 0;
   pointer-events: none;
-  transform: translate(-50%, 16px);
+  transform: translate(-50%, -16px);
   transition: opacity 0.24s ease, transform 0.24s ease;
 }
 
@@ -258,6 +258,7 @@ body.is-loading .page-loader {
     0 18px 38px rgba(0, 0, 0, 0.34),
     0 0 0 1px rgba(255, 239, 205, 0.04);
   backdrop-filter: blur(10px);
+  pointer-events: none;
 }
 
 .orientation-hint__text {
@@ -276,6 +277,7 @@ body.is-loading .page-loader {
   font: inherit;
   font-size: 0.86rem;
   cursor: pointer;
+  pointer-events: auto;
 }
 
 .orientation-hint__close:focus-visible {
@@ -1720,6 +1722,13 @@ body.info-panel-open .scene-wrap {
 
   .book-spread {
     padding: 12px;
+  }
+
+  .lobby-orb,
+  .info-orb {
+    width: max(var(--orb-size), 44px);
+    min-width: 44px;
+    min-height: 44px;
   }
 
   .book-spread__panel {

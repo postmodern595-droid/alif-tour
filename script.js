@@ -126,16 +126,15 @@
     refreshOrientationHint();
   });
 
-  window.addEventListener("resize", refreshOrientationHint);
-
   const spreadTriggers = document.querySelectorAll("[data-spread-target], [data-open-book]");
   const spreadOverlays = document.querySelectorAll("[data-spread-overlay], [data-book-spread]");
   const infoPanelTriggers = document.querySelectorAll("[data-panel-target]");
   const infoPanels = document.querySelectorAll("[data-info-panel]");
   const sliders = document.querySelectorAll("[data-slider]");
   const coarse = window.matchMedia("(pointer: coarse)").matches;
+  const hoverNone = window.matchMedia("(hover: none)").matches;
   const tooltipTargets = document.querySelectorAll("[data-tooltip]");
-  const orientationHintSessionKey = "alif-orientation-hint-seen";
+  const orientationHintSessionKey = "alif-orientation-hint-v2-seen";
   let lastFocusedElement = null;
   let lastFocusedSpreadTrigger = null;
   let lastFocusedInfoTrigger = null;
@@ -145,6 +144,7 @@
   let orientationHint = null;
   let orientationHintSeen = false;
   let orientationHintTimer = 0;
+  const hasTouchLikeInput = coarse || hoverNone || (navigator.maxTouchPoints ?? 0) > 0;
 
   try {
     orientationHintSeen = window.sessionStorage.getItem(orientationHintSessionKey) === "1";
@@ -164,7 +164,7 @@
 
   const isPhonePortrait = () => {
     const shortSide = Math.min(window.innerWidth, window.innerHeight);
-    return coarse && shortSide <= 600 && window.innerHeight > window.innerWidth;
+    return hasTouchLikeInput && shortSide <= 820 && window.innerHeight > window.innerWidth;
   };
 
   const hideOrientationHint = () => {
@@ -179,11 +179,13 @@
     if (!orientationHint || orientationHintSeen || !loadingFinished || !isPhonePortrait()) return;
 
     markOrientationHintSeen();
-    orientationHint.classList.add("is-visible");
     window.clearTimeout(orientationHintTimer);
-    orientationHintTimer = window.setTimeout(() => {
-      hideOrientationHint();
-    }, reduceMotion ? 2200 : 4200);
+    window.requestAnimationFrame(() => {
+      orientationHint.classList.add("is-visible");
+      orientationHintTimer = window.setTimeout(() => {
+        hideOrientationHint();
+      }, reduceMotion ? 2600 : 4600);
+    });
   };
 
   const refreshOrientationHint = () => {
@@ -210,6 +212,8 @@
     hideOrientationHint();
   });
   body.appendChild(orientationHint);
+  window.addEventListener("orientationchange", refreshOrientationHint);
+  window.addEventListener("resize", refreshOrientationHint);
 
   const hideTooltip = () => {
     cursorTooltip?.classList.remove("is-visible");
