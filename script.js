@@ -54,6 +54,8 @@
         animateEntrance();
         entrancePlayed = true;
       }
+
+      refreshOrientationHint();
     }, waitMs);
   };
 
@@ -120,7 +122,11 @@
     if (event.persisted && !reduceMotion) {
       animateEntrance();
     }
+
+    refreshOrientationHint();
   });
+
+  window.addEventListener("resize", refreshOrientationHint);
 
   const spreadTriggers = document.querySelectorAll("[data-spread-target], [data-open-book]");
   const spreadOverlays = document.querySelectorAll("[data-spread-overlay], [data-book-spread]");
@@ -129,12 +135,81 @@
   const sliders = document.querySelectorAll("[data-slider]");
   const coarse = window.matchMedia("(pointer: coarse)").matches;
   const tooltipTargets = document.querySelectorAll("[data-tooltip]");
+  const orientationHintSessionKey = "alif-orientation-hint-seen";
   let lastFocusedElement = null;
   let lastFocusedSpreadTrigger = null;
   let lastFocusedInfoTrigger = null;
   let activeSpreadOverlay = null;
   let activeInfoPanel = null;
   let cursorTooltip = null;
+  let orientationHint = null;
+  let orientationHintSeen = false;
+  let orientationHintTimer = 0;
+
+  try {
+    orientationHintSeen = window.sessionStorage.getItem(orientationHintSessionKey) === "1";
+  } catch {
+    orientationHintSeen = false;
+  }
+
+  const markOrientationHintSeen = () => {
+    orientationHintSeen = true;
+
+    try {
+      window.sessionStorage.setItem(orientationHintSessionKey, "1");
+    } catch {
+      /* no-op */
+    }
+  };
+
+  const isPhonePortrait = () => {
+    const shortSide = Math.min(window.innerWidth, window.innerHeight);
+    return coarse && shortSide <= 600 && window.innerHeight > window.innerWidth;
+  };
+
+  const hideOrientationHint = () => {
+    if (!orientationHint) return;
+
+    orientationHint.classList.remove("is-visible");
+    window.clearTimeout(orientationHintTimer);
+    orientationHintTimer = 0;
+  };
+
+  const showOrientationHint = () => {
+    if (!orientationHint || orientationHintSeen || !loadingFinished || !isPhonePortrait()) return;
+
+    markOrientationHintSeen();
+    orientationHint.classList.add("is-visible");
+    window.clearTimeout(orientationHintTimer);
+    orientationHintTimer = window.setTimeout(() => {
+      hideOrientationHint();
+    }, reduceMotion ? 2200 : 4200);
+  };
+
+  const refreshOrientationHint = () => {
+    if (!isPhonePortrait()) {
+      hideOrientationHint();
+      return;
+    }
+
+    showOrientationHint();
+  };
+
+  orientationHint = document.createElement("div");
+  orientationHint.className = "orientation-hint";
+  orientationHint.innerHTML = `
+    <div class="orientation-hint__card" role="status" aria-live="polite">
+      <p class="orientation-hint__text">Для лучшего просмотра переверните телефон горизонтально</p>
+      <button class="orientation-hint__close" type="button" aria-label="Закрыть подсказку">
+        Понятно
+      </button>
+    </div>
+  `;
+  orientationHint.querySelector(".orientation-hint__close")?.addEventListener("click", () => {
+    markOrientationHintSeen();
+    hideOrientationHint();
+  });
+  body.appendChild(orientationHint);
 
   const hideTooltip = () => {
     cursorTooltip?.classList.remove("is-visible");
